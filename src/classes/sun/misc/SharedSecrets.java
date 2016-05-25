@@ -19,6 +19,7 @@ package sun.misc;
 
 import java.io.File;
 import java.io.FileDescriptor;
+import java.io.ObjectInputStream;
 import java.util.jar.JarFile;
 
 /**
@@ -56,6 +57,7 @@ public class SharedSecrets {
   private static JavaIOFileDescriptorAccess javaIOFileDescriptorAccess;
   private static JavaNioAccess javaNioAccess;
   private static JavaAWTAccess javaAWTAccess;
+  private static JavaObjectInputStreamAccess javaObjectInputStreamAccess;
 
   // (required for EnumSet ops)
   public static JavaLangAccess getJavaLangAccess() {
@@ -136,6 +138,19 @@ public class SharedSecrets {
     return javaIOFileDescriptorAccess;
   }
 
+  public static JavaObjectInputStreamAccess getJavaObjectInputStreamAccess() {
+    if (javaObjectInputStreamAccess == null) {
+      unsafe.ensureClassInitialized(ObjectInputStream.class);
+      throw new UnsupportedOperationException("sun.misc.SharedSecrets.getJavaObjectInputStreamAccess() not supported yet");
+    }
+    
+    return javaObjectInputStreamAccess;
+  }
+
+  public static void setJavaObjectInputStreamAccess(JavaObjectInputStreamAccess access) {
+    javaObjectInputStreamAccess = access;
+  }
+  
   public static void setJavaAWTAccess (JavaAWTAccess jaa){
     javaAWTAccess = jaa;
   }
