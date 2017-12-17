@@ -52,6 +52,7 @@ public class Reporter extends SearchListenerAdapter {
   protected VM vm;
 
   protected Date started, finished;
+  public long startedNano, finishedNano;
   protected Statistics stat; // the object that collects statistics
   protected List<Publisher> publishers = new ArrayList<Publisher>();
   
@@ -66,6 +67,7 @@ public class Reporter extends SearchListenerAdapter {
     boolean reportStats = conf.getBoolean("report.statistics", false) || (probeInterval > 0);
 
     started = new Date();
+    startedNano = System.nanoTime();
 
     addConfiguredPublishers(conf);
 
@@ -357,6 +359,7 @@ public class Reporter extends SearchListenerAdapter {
    */
   public long getElapsedTime () {
     Date d = (finished != null) ? finished : new Date();
+    finishedNano = System.nanoTime();
     long t = d.getTime() - started.getTime();
     return t;
   }
