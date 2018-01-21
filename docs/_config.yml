@@ -24,10 +24,10 @@ author:
 version:             1.0.0
 
 pages_list:       
-  Home: '/index'
-  Introduction: '/intro/index'
-  How to obtain and install JPF: '/install/index'
-  How to use JPF: '/user/index'
-  Developer guide: '/devel/index'
-  JPF core project: '/jpf-core/index'
-  Related research: '/papers/index'
+  Home: '/jpf-core-veritesting/index'
+  Introduction: '/jpf-core-veritesting/intro/index'
+  How to obtain and install JPF: '/jpf-core-veritesting/install/index'
+  How to use JPF: '/jpf-core-veritesting/user/index'
+  Developer guide: '/jpf-core-veritesting/devel/index'
+  JPF core project: '/jpf-core-veritesting/jpf-core/index'
+  Related research: '/jpf-core-veritesting/papers/index'
